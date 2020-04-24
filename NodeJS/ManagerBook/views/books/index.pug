@@ -1,0 +1,20 @@
+extends ../layouts/common
+block content
+    a(href='/books/create') Create Books
+        h1 BooksList
+        ul(class='table')
+            each book in books
+                li
+                    span BookTitle:
+                    span= book.title
+                    span &emsp;
+                    span BookDes:
+                    span= book.des
+                    a(href='/books/'+book.id) View
+                    a(href='/books/'+book.id+'/delete') Delete
+                    form(action='/books/' + book.id, method="POST", class='d-flex')
+                        label NewTitle
+                        input(name="title", type="text", class='from-control')
+                        button(class='btn-primary') Update
+
+    // thay doi giao dien file pug de them css vao cac phan con lai nhu body head

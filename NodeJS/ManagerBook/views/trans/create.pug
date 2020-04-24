@@ -1,0 +1,9 @@
+h1 Create Transaction
+form(action='/trans/create', method='POST')
+    select(name='userID')
+        each user in users
+            option= user.name
+    select(name='bookID')
+        each book in books
+            option= book.title
+    button Create

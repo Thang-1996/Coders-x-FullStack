@@ -1,0 +1,14 @@
+a(href='/users/create') Create Users
+h1 UserList
+ul
+    each user in users
+        li
+            span UserName:
+            span= user.name
+            span &emsp;
+            a(href='/users/'+user.id) View
+            a(href='/users/'+user.id+'/delete') Delete
+            form(action='/users/' + user.id, method="POST")
+                label NewUserName
+                input(name="name" type="text")
+                button Update

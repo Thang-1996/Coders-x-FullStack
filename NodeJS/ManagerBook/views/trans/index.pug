@@ -1,0 +1,10 @@
+h1 Trans
+a(href='/trans/create') Create New Transactions
+ul
+    each tran in trans
+        li
+            span= tran.userID
+            span &emsp;
+            span= tran.bookID
+            a(href="/trans/" + tran.id + "/isComplete") Xác Nhận Hoàn Thành
+            span= tran.isComplete === true ? "Đã Hoàn Thành" : "Chưa Hoàn Thành"

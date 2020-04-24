@@ -1,5 +1,4 @@
 a(href="/users/create") Create
-a(href="/users/update") Update
 form(action="/users", method="GET")
     input(type="text", name="q")
     button Search
@@ -7,9 +6,12 @@ ul
     each user in users
         li
         span= user.name
-        //a(href='/users/'+ user.id) View
+        a(href='/users/'+ user.id) View
         a(href='/users/'+ user.id+'/delete') Delete
-        a(href='/users/'+ user.id+'/update') Update
+        form(action="/users/" + user.id, method="POST")
+            span NewUserName:
+            input(type="text", name="q")
+            button Update
 
 
 
