@@ -1,10 +1,18 @@
 const db = require('../db');
 const shortid = require('shortid');
+module.exports.index = function (req,res) {
+    res.render('books/index',{
+        books : db.get('books').value()
+    });
+};
 module.exports.create = function (req,res) {
     res.render('books/create');
 };
 module.exports.postCreate = function (req,res) {
     req.body.id = shortid.generate();
+    // lam validate
+    // tao arrray chua cac errror de push vao cac error string
+    console.log(res.locals);
     db.get('books').push(req.body).write();
     res.redirect('/books');
 };

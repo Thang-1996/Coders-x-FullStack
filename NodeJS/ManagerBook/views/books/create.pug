@@ -1,9 +1,14 @@
 extends ../layouts/common
 block content
     h1 Create Books
+    if errors
+        each error in errors
+            .alert.alert-danger= error
     form(action="/books/create", method="POST")
+        .form-group
         label BookTitle
-        input(name="title" type="text")
+        input.form-control(name="title", type="text", value=values ? values.title: "")
+        // kiem tra xem values co ton tai hay khong dung ternary operator
         label BookDescription
-        input(name="des" type="text")
-        button Create
+        input.form-control(name="des", type="text", value=values ? values.des: "")
+        button.btn.btn-primary.mt-3 Create
