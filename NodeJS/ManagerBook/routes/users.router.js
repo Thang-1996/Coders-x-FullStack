@@ -3,7 +3,6 @@ const router = express.Router();
 const controller = require('../controllers/user.controller');
 const validate = require('../validate/user.validate');
 module.exports = router;
-const authMidderware =require('../midderware/auth.midderware');
 // function middleware1(req,res,next){
 // //     console.log('midderware1');
 // //     next(); //  se chuyen sang request tiep theo

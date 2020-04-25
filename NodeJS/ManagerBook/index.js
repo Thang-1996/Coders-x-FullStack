@@ -21,8 +21,8 @@ app.listen(port,function () {
 app.get('/',function (req,res) {
     res.send('<a href="/books">BooksList</a>'+'    |     '+'<a href="/users">UsersList</a>'+'      |       '+'<a href="/trans">Transactions List</a>');
 });
-app.use('/books',booksRouter);
+app.use('/books',authMidderware.requireAuth,booksRouter);
 app.use('/users',authMidderware.requireAuth,usersRouter); // dung cho ca trang
-app.use('/trans',transRouter);
+app.use('/trans',authMidderware.requireAuth,transRouter);
 app.use('/auth',authRouter);
 app.use(express.static('public')); // khai bao de access cac file trong thu muc public

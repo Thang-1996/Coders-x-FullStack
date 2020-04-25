@@ -1,5 +1,4 @@
 const db = require('../db');
-const shortid = require('shortid');
 module.exports.login = function (req,res) {
     res.render('auth/login');
 };
@@ -25,5 +24,14 @@ module.exports.postLogin = function (req,res) {
         return;
     }
     res.cookie('userId', user.id);
+    if(!user.isAdmin){
+        var trans = db.get('trans').filter({userID : req.cookies.userId}).value();
+        res.render("trans/index",{
+            trans : trans,
+            books: db.get("books").value()
+        });
+        res.redirect('/trans');
+        return;
+    }
     res.redirect('/users');
 };

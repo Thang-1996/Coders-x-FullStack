@@ -1,4 +1,8 @@
-h1 UserView
-p
-    b UserName:
-    span=user.name
+extends ../layouts/common
+block content
+    h1 Users
+    p
+        b UserName:
+        span=user.name
+        b UserID:
+        span=user.id

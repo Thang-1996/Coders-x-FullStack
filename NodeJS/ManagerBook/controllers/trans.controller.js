@@ -31,3 +31,8 @@ module.exports.getComplete = function(req,res) {
     db.get('trans').find({id:id}).assign({isComplete:true}).write();
     res.redirect('/trans');
 };
+module.exports.delete = function(req,res){
+    const id = req.params.id;
+    db.get('trans').remove({id:id}).write();
+    res.redirect('/trans');
+};

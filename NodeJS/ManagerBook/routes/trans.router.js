@@ -6,4 +6,5 @@ router.get('/',controller.index);
 router.get('/create',controller.create); // thay controller vao lam callback function
 router.post('/create',controller.postCreate);
 router.get('/:id/isComplete',controller.getComplete);
+router.get('/:id/delete',controller.delete);
 

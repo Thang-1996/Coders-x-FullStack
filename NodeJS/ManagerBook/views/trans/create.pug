@@ -1,9 +1,12 @@
-h1 Create Transaction
-form(action='/trans/create', method='POST')
-    select(name='userID')
-        each user in users
-            option= user.name
-    select(name='bookID')
-        each book in books
-            option= book.title
-    button Create
+extends ../layouts/common
+block content
+    h1 Create Transaction
+        form(action='/trans/create', method='POST')
+            .form-group
+            select.form-control(name='userID')
+                each user in users
+                    option= user.name
+            select.form-control(name='bookID')
+                each book in books
+                    option= book.title
+            button.btn.btn-primary Create

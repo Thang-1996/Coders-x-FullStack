@@ -1,15 +1,20 @@
 extends ../layouts/common
 block content
-    h1 Trans
-    a(href='/trans/create') Create New Transactions
-    ul
-        if errors
-            each error in errors
-                .alert.alert-danger= error
-        each tran in trans
-            li
-                span= tran.userID
-                span &emsp;
-                span= tran.bookID
-                a(href="/trans/" + tran.id + "/isComplete") Xác Nhận Hoàn Thành
-                span= tran.isComplete === true ? "Đã Hoàn Thành" : "Chưa Hoàn Thành"
+    h1 Transactions
+    a.btn.btn-primary.mt-3.mb-3(href='/trans/create') Create New Transactions
+    table.table
+        tr
+            th UserName
+            th BookTitle
+            th Complete Check
+            th Status
+            th Delete
+            each tran in trans
+                tr
+                    td= tran.userID
+                    td= trans.bookID
+                    td
+                        a(href="/trans/" + tran.id + "/isComplete") Xác Nhận Hoàn Thành
+                    td= tran.isComplete === true ? "Đã Hoàn Thành" : "Chưa Hoàn Thành"
+                    td
+                        a(href='/trans/'+tran.id+'/delete') Delete

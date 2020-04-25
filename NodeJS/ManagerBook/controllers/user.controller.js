@@ -17,9 +17,9 @@ module.exports.postCreate = function (req,res) {
 };
 module.exports.view = function (req,res) {
     const id = req.params.id;
-    const book = db.get('users').find({id:id}).value();
+    const user = db.get('users').find({id:id}).value();
     res.render('users/view',{
-        book:book
+        user:user
     });
 };
 module.exports.delete = function (req,res) {
